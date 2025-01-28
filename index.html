@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Windows 11 Emulator</title>
+  <title>11</title>
   <style>
     body, html {
       margin: 0;
@@ -23,6 +23,16 @@
   </style>
 </head>
 <body>
-  <video src="video.mp4" autoplay loop></video>
+  <video id="video" src="video.mp4" loop></video>
+  <script>
+    const video = document.getElementById('video');
+    video.muted = false;
+    video.play().catch(() => {
+      document.body.addEventListener('click', () => {
+        video.play();
+      }, { once: true });
+    });
+  </script>
 </body>
 </html>
+
